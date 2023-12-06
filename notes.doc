@@ -1,0 +1,23 @@
+Results for the extraLargeArray
+append 2.2166 ms
+insert 665.6411 ms
+
+Results for the largeArray
+append 399.3 μs
+insert 6.8981 ms
+
+Results for the mediumArray
+append 105.3 μs
+insert 155.7 μs\
+
+Results for the smallArray
+append 76 μs
+insert 41.4 μs
+
+Results for the tinyArray
+append 68.9 μs
+insert 33.6 μs
+
+Append scales much better. In small scales the difference is negligable. The difference starts to become apparent with the largeArray. Append appears to be following linear runtime while insert is following aquadratic runtime.
+
+The slower function uses unshift which adds an element to the front of the array. This means that javascript engine needs to shift every element that is already in the array one index to the right. Versus the push method that it simply adds the element to the end of the array and doesnt require moving any existing elements.
